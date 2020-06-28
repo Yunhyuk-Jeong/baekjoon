@@ -10,6 +10,6 @@
 
 **_ENG_**
 
-This Repository is made because of [Baekjoon OJ](https://www.acmicpc.net/).
+This repository is a repository of troubleshooting codes from [Baekjoon OJ](https://www.acmicpc.net/).
 
 The copyright of all sources exists for [YunHyuk-Jeong](https://github.com/Yunhyuk-Jeong).
