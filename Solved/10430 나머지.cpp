@@ -1,3 +1,6 @@
+//* https://www.acmicpc.net/problem/10430
+//* Bronze 5
+
 #include <stdio.h>
 
 int main()
