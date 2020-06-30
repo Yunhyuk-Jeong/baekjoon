@@ -13,7 +13,7 @@ int main()
 
     for (int i = 0; i < number; i++)
     {
-        scanf("%d %s", repeatNumber[i], repeatString[i]);
+        scanf("%d %s", &repeatNumber[i], repeatString[i]);
         repeatLength[i] = strlen(repeatString[i]);
     }
 
@@ -24,4 +24,6 @@ int main()
                 printf("%c", repeatString[i][j]);
         printf("\n");
     }
+
+    return 0;
 }

@@ -14,7 +14,7 @@ int main()
     for (int i = 0; i < 3; i++)
     {
         scanf("%d", &number[i]);
-        mulNumber = number[i];
+        mulNumber *= number[i];
     }
 
     while (true)
