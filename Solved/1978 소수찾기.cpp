@@ -7,7 +7,7 @@
 
 int prime_check(int n)
 {
-    int m = sqrt((double)n) + 1;
+    int m = sqrt((double)n);
     for (int i = 2; i <= m; i++)
         if (n % i == 0)
             return 0;
