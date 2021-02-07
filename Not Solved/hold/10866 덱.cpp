@@ -1,6 +1,8 @@
 //* https://www.acmicpc.net/problem/10866
 //* Silver 4
 
+//! Time Over
+
 #include <stdio.h>
 #include <string.h>
 
@@ -82,4 +84,6 @@ int main()
         else if (strcmp(input, "back"))
             printf("%d", peek_back());
     }
+
+    return 0;
 }
