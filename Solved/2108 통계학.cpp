@@ -1,6 +1,8 @@
 //* https://www.acmicpc.net/problem/2108
 //* Silver 4
 
+#include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <stdlib.h>
 
@@ -34,6 +36,7 @@ int main()
     int n, sum = 0, flag = 0;
     int min = 4001, max = -4001;
     int mode = 0;
+    double arithmeticMean = 0;
 
     cin >> n;
 
@@ -81,7 +84,11 @@ int main()
 
     qsort(num, n, sizeof(int), cmp);
 
-    printf("%.0f\n%d\n%d\n%d\n", (double)sum / n, num[(n + 1) / 2 - 1], mode, max - min);
+    arithmeticMean = (double)sum / n;
+    if (ceil(arithmeticMean) == 0)
+        arithmeticMean = 0;
+
+    printf("%.0f\n%d\n%d\n%d\n", arithmeticMean, num[(n + 1) / 2 - 1], mode, max - min);
 
     return 0;
 }
