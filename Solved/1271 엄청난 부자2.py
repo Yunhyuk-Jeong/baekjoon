@@ -1,5 +1,5 @@
-//* https://www.acmicpc.net/problem/1271
-//* Bronze 5
+#* https://www.acmicpc.net/problem/1271
+#* Bronze 5
 
 a = input()
 b = input()
