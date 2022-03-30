@@ -1,55 +1,41 @@
 //* https://www.acmicpc.net/problem/11723
 //* Silver 5
 
-#include <cmath>
-#include <cstring>
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-    int set[21] = {
-        false,
-    };
 
-    int m;
+    int n, m, x;
+    char s[11];
 
-    cin >> m;
+    scanf("%d", &m);
 
     for (int i = 0; i < m; i++)
     {
-        char commend[10];
-        int value = 0;
+        scanf("%s", s);
 
-        cin >> commend;
-
-        if (strcmp(commend, "add") == 0)
+        if (s[0] == 'a' && s[1] == 'd')
         {
-            cin >> value;
-            set[value] = 1;
+            scanf("%d", &x);
+            n |= (1 << x);
         }
-        else if (strcmp(commend, "remove") == 0)
+        else if (s[0] == 'r')
         {
-            cin >> value;
-            set[value] = 0;
+            scanf("%d", &x);
+            n &= ~(1 << x);
         }
-        else if (strcmp(commend, "check") == 0)
+        else if (s[0] == 'c')
         {
-            cin >> value;
-            cout << set[value] << endl;
+            scanf("%d", &x);
+            printf("%d\n", (n & (1 << x)) == 0 ? 0 : 1);
         }
-        else if (strcmp(commend, "toggle") == 0)
-        {
-            cin >> value;
-            set[value] = abs(set[value] - 1);
-        }
-        else if (strcmp(commend, "all") == 0)
-            for (int i = 1; i < 21; i++)
-                set[i] = 1;
-        else if (strcmp(commend, "empty") == 0)
-            for (int i = 1; i < 21; i++)
-                set[i] = 0;
+        else if (s[0] == 't')
+            n ^= (1 << x);
+        else if (s[0] == 'a' && s[1] == 'l')
+            n = (1 << 21) - 1;
+        else
+            n = 0;
     }
 
     return 0;
