@@ -1,8 +1,12 @@
 //* https://www.acmicpc.net/problem/1920
 //* Silver 4
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+int arr[100001];
 
 int static compare(const void *first, const void *second)
 {
@@ -14,51 +18,52 @@ int static compare(const void *first, const void *second)
         return 0;
 }
 
+void solve(int n, int key)
+{
+    int start = 0;
+    int end = n - 1;
+    int mid;
+
+    while (end - start >= 0)
+    {
+        mid = (start + end) / 2;
+
+        if (arr[mid] == key)
+        {
+            cout << "1\n";
+            return;
+        }
+        else if (arr[mid] > key)
+            end = mid - 1;
+        else
+            start = mid + 1;
+    }
+
+    cout << "0\n";
+    return;
+}
+
 int main()
 {
-    int n, m, *a, *b, *solve, input;
-    scanf("%d", &n);
-    a = (int *)malloc(sizeof(int) * n);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n, m, tmp;
+
+    cin >> n;
+
     for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &input);
-        a[i] = input;
-    }
+        cin >> arr[i];
 
-    qsort(a, n, sizeof(int), compare);
+    qsort(arr, n, sizeof(int), compare);
 
-    scanf("%d", &m);
-    b = (int *)malloc(sizeof(int) * m);
-    solve = (int *)malloc(sizeof(int) * m);
-    for (int i = 0; i < m; i++)
-    {
-        scanf("%d", &input);
-        b[i] = input;
-    }
+    cin >> m;
 
     for (int i = 0; i < m; i++)
     {
-        int start = 0, end = n;
-        while (start <= end)
-        {
-            int mid = (start + end) / 2;
-
-            if (b[i] == a[mid])
-            {
-                solve[i] = 1;
-                break;
-            }
-            else if (b[i] < a[mid])
-                end = mid - 1;
-            else if (b[i] > a[mid])
-                start = mid + 1;
-        }
-        if (solve[i] != 1)
-            solve[i] = 0;
+        cin >> tmp;
+        solve(n, tmp);
     }
-
-    for (int i = 0; i < m; i++)
-        printf("%d\n", solve[i]);
 
     return 0;
 }
